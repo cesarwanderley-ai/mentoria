@@ -13,6 +13,7 @@
 <meta property="og:image" content="https://cesarwanderley-ai.github.io/mentoria/img/cesar.jpg">
 <link rel="canonical" href="https://cesarwanderley-ai.github.io/mentoria/">
 <link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
@@ -41,10 +42,12 @@
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .3 0 0 0 0 .22 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   body::after{
-    content:"CW";position:fixed;right:-.08em;bottom:-.22em;z-index:0;pointer-events:none;
-    font-family:var(--serif);font-size:min(62vw,560px);line-height:1;letter-spacing:-.04em;
-    color:transparent;-webkit-text-stroke:1px rgba(103,122,111,.22);
+    content:"";position:fixed;right:-16vw;bottom:-14vw;z-index:0;pointer-events:none;
+    width:min(88vw,640px);aspect-ratio:1;opacity:.07;
+    background:url(img/logo-cw-salvia.svg) center/contain no-repeat;
   }
+  .rubrica .marca{display:inline-flex;align-items:center;gap:9px}
+  .rubrica .marca img{width:26px;height:26px;display:block}
   a{color:inherit;text-decoration:none}
   .folha{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:28px 22px 110px}
 
@@ -226,7 +229,7 @@
   .barra.oculta{transform:translateY(110%);opacity:0;pointer-events:none}
 
   footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--filete);display:flex;align-items:center;gap:14px}
-  .mono{width:46px;height:46px;flex:none;border-radius:50%;border:1px solid var(--salvia);display:grid;place-items:center;font-family:var(--serif);font-size:19px;letter-spacing:-.02em}
+  .mono{width:48px;height:48px;flex:none;display:block}
   footer p{font-size:11.5px;color:var(--tinta-2);line-height:1.45}
   footer p b{font-weight:600;color:var(--tinta);letter-spacing:.14em;text-transform:uppercase;font-size:10.5px}
   footer a{border-bottom:1px solid var(--salvia)}
@@ -250,13 +253,40 @@
     .curriculo{grid-template-columns:72px 1fr}
     .curriculo .retrato{width:72px;height:72px}
   }
+
+  /* ---------- obras coletivas ---------- */
+  .obras-cab{display:flex;justify-content:space-between;align-items:baseline;margin:30px 0 12px}
+  .obras-cab h3{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1}
+  .obras-cab span{font-size:11px;color:var(--tinta-2);letter-spacing:.04em}
+  .obras{
+    display:grid;grid-auto-flow:column;grid-auto-columns:38%;gap:14px;
+    overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    margin:0 -22px;padding:6px 22px 16px;scroll-padding:0 22px;scrollbar-width:none;
+  }
+  .obras::-webkit-scrollbar{display:none}
+  .obra{scroll-snap-align:start;display:flex;flex-direction:column;gap:7px}
+  .obra .mini{
+    position:relative;aspect-ratio:2/3;border-radius:2px 4px 4px 2px;overflow:hidden;background:#ddd;
+    box-shadow:1px 1px 0 rgba(0,0,0,.2),6px 10px 16px -8px rgba(28,35,32,.5);
+    transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease;
+  }
+  .obra .mini img{width:100%;height:100%;object-fit:cover;display:block}
+  .obra .mini::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(90deg,rgba(0,0,0,.35) 0,rgba(255,255,255,.18) 2.5%,transparent 7%);
+  }
+  .obra:hover .mini,.obra:focus-visible .mini{transform:translateY(-4px);box-shadow:1px 1px 0 rgba(0,0,0,.2),0 16px 24px -12px rgba(28,35,32,.55)}
+  .obra .papel{align-self:flex-start;font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--salvia-escura);border:1px solid var(--salvia);border-radius:999px;padding:1px 7px}
+  .obra b{font-family:var(--serif);font-weight:400;font-size:14.5px;line-height:1.15;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .obra small{font-size:11px;color:var(--tinta-2)}
+  @media (min-width:520px){.obras{grid-auto-columns:30%}}
 </style>
 </head>
 <body>
 <main class="folha">
 
   <div class="rubrica surge d1">
-    <span><b>Mentoria</b> individual</span>
+    <span class="marca"><img src="img/logo-cw.svg" alt="" width="26" height="26"><span><b>Mentoria</b> individual</span></span>
     <a href="https://cesarwanderley-ai.github.io/links/">Todos os links</a>
   </div>
 
@@ -336,6 +366,45 @@
         <p>Para o planejamento das contratações públicas. Com Jader Esteves da Silva. Editora CEEJ.</p>
         <a class="ir" href="https://cesarwanderley-ai.github.io/manual-ia/?origem=mentoria">Quero ser avisado &rarr;</a>
       </div>
+    </div>
+    <div class="obras-cab"><h3>Obras coletivas</h3><span>arraste para o lado &rarr;</span></div>
+    <div class="obras">
+      <a class="obra" href="https://www.editoramizuno.com.br/products/livro-estudo-tecnico-preliminar-contratacao-publica-etp" aria-label="Desvendando o Estudo Técnico Preliminar na Contratação Pública (Mizuno · 2025)">
+        <div class="mini"><img src="img/obras/etp.jpg" alt="Capa do livro Desvendando o Estudo Técnico Preliminar na Contratação Pública" width="360" height="508" loading="lazy"></div>
+        <span class="papel">Coautoria</span>
+        <b>Desvendando o Estudo Técnico Preliminar na Contratação Pública</b>
+        <small>Mizuno · 2025</small>
+      </a>
+      <a class="obra" href="https://www.editorajuspodivm.com.br/pregoeiros-e-agentes-de-contratacao-desvendando-a-lei-1413321-em-perguntas-e-respostas-2025-quintas" aria-label="Pregoeiros e Agentes de Contratação: a Lei 14.133/2021 em perguntas e respostas (JusPodivm · 2025 · 2ª ed.)">
+        <div class="mini"><img src="img/obras/perguntas-respostas.jpg" alt="Capa do livro Pregoeiros e Agentes de Contratação: a Lei 14.133/2021 em perguntas e respostas" width="360" height="502" loading="lazy"></div>
+        <span class="papel">Coautoria</span>
+        <b>Pregoeiros e Agentes de Contratação: a Lei 14.133/2021 em perguntas e respostas</b>
+        <small>JusPodivm · 2025 · 2ª ed.</small>
+      </a>
+      <a class="obra" href="https://www.editoramizuno.com.br/products/livro-pregoeiro-e-agente-de-contratacao-nas-licitacoes-lei-14133-2021" aria-label="A Atuação do Pregoeiro e Agente de Contratação nas Licitações (Mizuno · 2025)">
+        <div class="mini"><img src="img/obras/atuacao-pregoeiro.jpg" alt="Capa do livro A Atuação do Pregoeiro e Agente de Contratação nas Licitações" width="360" height="517" loading="lazy"></div>
+        <span class="papel">Capítulo</span>
+        <b>A Atuação do Pregoeiro e Agente de Contratação nas Licitações</b>
+        <small>Mizuno · 2025</small>
+      </a>
+      <a class="obra" href="https://www.amazon.com.br/dp/6584958361" aria-label="Contratos Inteligentes e Blockchain na Administração Pública (CEEJ · 2026)">
+        <div class="mini"><img src="img/obras/contratos-inteligentes.jpg" alt="Capa do livro Contratos Inteligentes e Blockchain na Administração Pública" width="360" height="517" loading="lazy"></div>
+        <span class="papel">Capítulo</span>
+        <b>Contratos Inteligentes e Blockchain na Administração Pública</b>
+        <small>CEEJ · 2026</small>
+      </a>
+      <a class="obra" href="https://www.amazon.com.br/dp/6584958965" aria-label="Apostas de Quota Fixa (Bets) e Direito Administrativo (CEEJ · 2026)">
+        <div class="mini"><img src="img/obras/bets.jpg" alt="Capa do livro Apostas de Quota Fixa (Bets) e Direito Administrativo" width="360" height="509" loading="lazy"></div>
+        <span class="papel">Capítulo</span>
+        <b>Apostas de Quota Fixa (Bets) e Direito Administrativo</b>
+        <small>CEEJ · 2026</small>
+      </a>
+      <a class="obra" href="https://www.editoramenteaberta.com.br/ciencias-criminais-v-genero-carcere-e-atualidades" aria-label="Ciências Criminais V: gênero, cárcere e atualidades (Mente Aberta · 2025)">
+        <div class="mini"><img src="img/obras/ciencias-criminais-v.jpg" alt="Capa do livro Ciências Criminais V: gênero, cárcere e atualidades" width="360" height="534" loading="lazy"></div>
+        <span class="papel">Capítulo</span>
+        <b>Ciências Criminais V: gênero, cárcere e atualidades</b>
+        <small>Mente Aberta · 2025</small>
+      </a>
     </div>
   </section>
 
@@ -534,7 +603,7 @@
   </section>
 
   <footer>
-    <div class="mono" aria-hidden="true">CW</div>
+    <img class="mono" src="img/logo-cw.svg" alt="" width="48" height="48">
     <p><b>César Wanderley</b><br>Advocacia especializada · OAB/RO 4745 · Porto Velho, Rondônia<br><a href="https://cesarwanderley-ai.github.io/links/">Todos os links</a></p>
   </footer>
 </main>
